@@ -1,0 +1,124 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'my-font';
+    src: url('../fonts/my-font.eot');
+    src: url('../fonts/my-font.eot?#iefix') format('embedded-opentype'), url('../fonts/my-font.woff') format('woff'), url('../fonts/my-font.ttf') format('truetype'), url('../fonts/my-font.svg#my-font') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[data-icon]:before {
+    font-family: 'my-font' !important;
+    content: attr(data-icon);
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[class^='icon-']:before,
+[class*=' icon-']:before {
+    font-family: 'my-font' !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-facebook:before {
+    content: '\61';
+}
+
+.icon-twitter:before {
+    content: '\62';
+}
+
+.icon-search:before {
+    content: '\65';
+}
+
+.icon-angle-down:before {
+    content: '\66';
+}
+
+.icon-registered:before {
+    content: '\67';
+}
+
+.icon-candado:before {
+    content: '\6a';
+}
+
+.icon-arrow-circle-up:before {
+    content: '\6c';
+}
+
+.icon-arrow-circle-right:before {
+    content: '\69';
+}
+
+.icon-arrow-circle-left:before {
+    content: '\6b';
+}
+
+.icon-phone-square:before {
+    content: '\6d';
+}
+
+.icon-user:before {
+    content: '\68';
+}
+
+.icon-align-justify:before {
+    content: '\64';
+}
+
+.icon-venus-mars:before {
+    content: '\6e';
+}
+
+.icon-home:before {
+    content: '\6f';
+}
+
+.icon-instagram:before {
+    content: '\70';
+}
+
+.icon-random:before {
+    content: '\71';
+}
+
+.icon-exclamation-triangle:before {
+    content: '\72';
+}
+
+.icon-facebook-1:before {
+    content: '\73';
+}
+
+.icon-playback-pause:before {
+    content: '\75';
+}
+
+.icon-playback-play:before {
+    content: '\76';
+}
+
+.icon-mute:before {
+    content: '\74';
+}
+
+.icon-volume-up:before {
+    content: '\77';
+}
+
+.icon-stop:before {
+    content: "\63";
+}
