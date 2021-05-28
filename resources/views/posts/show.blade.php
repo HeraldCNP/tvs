@@ -22,7 +22,7 @@
                         </div>
                         <p>{!! $post->body !!}</p>
                         <div class="space40"></div>
-                        <p>Nulla porttitor accumsan tincidunt. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur non nulla sit.</p>
+                        {{-- <p>Nulla porttitor accumsan tincidunt. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur non nulla sit.</p> --}}
                         {{-- <blockquote>
                             "There is precious little hope to be got out of whatever keeps sustrious, but there is a chance for us whenever we cease work and become stargazers"
                             <cite>-H.M. Tomlinson</cite>

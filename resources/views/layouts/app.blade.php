@@ -130,27 +130,30 @@
         </div>
 
     </div>
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4 text-center">
-            <h4 class="h3">Solicita tu canción favorita</h4>
-            <form action="#">
+    @if (Request::is('/'))
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 text-center">
+                <h4 class="h3">Solicita tu canción favorita</h4>
+                <form action="#">
 
-                <label for="nombre" style="color:white; margin-top:5px">¿Cual es tu nombre?</label>
-                <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre" required>
-
-
-                <label for="artista" style="color:white; margin-top:5px">Artista o Interprete</label>
-                <input type="text" class="form-control" id="artista" placeholder="Ingresa el nombre de artista" required>
+                    <label for="nombre" style="color:white; margin-top:5px">¿Cual es tu nombre?</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre" required>
 
 
-                <label for="tema" style="color:white; margin-top:5px">Canción</label>
-                <input type="text" class="form-control" id="tema" placeholder="Ingresa la canción" required>
-                <button id="submit" class="btn btn-xs btn-primary" style="margin-top: 5px; padding:7px">Solicitar canción</button>
-            </form>
+                    <label for="artista" style="color:white; margin-top:5px">Artista o Interprete</label>
+                    <input type="text" class="form-control" id="artista" placeholder="Ingresa el nombre de artista" required>
+
+
+                    <label for="tema" style="color:white; margin-top:5px">Canción</label>
+                    <input type="text" class="form-control" id="tema" placeholder="Ingresa la canción" required>
+                    <button id="submit" class="btn btn-xs btn-primary" style="margin-top: 5px; padding:7px">Solicitar canción</button>
+                </form>
+            </div>
+            <div class="col-md-4"></div>
         </div>
-        <div class="col-md-4"></div>
-    </div>
+    @endif
+
 
     <!-- HEADER -->
     <header class="header-scroll wow fadeInUp" data-wow-duration="1s">
@@ -166,7 +169,7 @@
 
                 <div class="col-md-8">
                     <div class="lang-search pull-right">
-                        <div class="site-lang">EN</div>
+                        <div class="site-lang"></div>
                         <div class="site-search">
                             <img src="images/icon/search.png" alt="" />
                         </div>
@@ -184,18 +187,16 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="{{  route('inicio') }}">Inicio</a></li>
                             <li class="dropdown">
-                                <a href="./nava-radio-videos.html">Articulos</a>
+                                <a href="./nava-radio-videos.html">Categorias</a>
                                 <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="./nava-radio-videos.html">Videos</a>
-                                    </li>
-                                    <li>
-                                        <a href="./nava-radio-single-video.html">Videos - Single</a>
-                                    </li>
-                                    <li><a href="./nava-radio-404.html">404</a></li>
+                                    @foreach ($categories as $category)
+                                        <li>
+                                            <a href="{{ route('posts.category', $category) }}">{{ $category->name }}</a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            {{-- <li class="dropdown">
                                 <a href="./nava-radio-album.html">Videos</a>
                                 <ul class="dropdown-menu">
                                     <li>
@@ -208,18 +209,8 @@
                                         <a href="./nava-radio-single-album.html">Album - Single</a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="./nava-radio-podcast.html">Contacto</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="./nava-radio-podcast.html">Podcast</a>
-                                    </li>
-                                    <li>
-                                        <a href="./nava-radio-single-podcast.html">Podcast - Single</a>
-                                    </li>
-                                </ul>
-                            </li>
+                            </li> --}}
+                            <li><a href="{{  route('inicio') }}">Contacto</a></li>
                         </ul>
                     </div>
                 </div>
@@ -252,6 +243,8 @@
                 </div>
                 <div class="col-md-4 text-center">
                     <h4>Enlaces de Interes</h4>
+                    <p class="text-muted">-<a href="http://www.labsanmartin.com.bo" target="_blank" class="text-white"> Laboratorio Quimico Instrumental San Martin </a>-</p>
+                    <p class="text-muted">-<a href="http://www.colegiopichincha.com" target="_blank" class="text-white"> Colegio Nacional Pichincha </a>-</p>
                     <p class="text-muted">-<a href="" class="text-white"> Tvs Clasico </a>-</p>
                     <p class="text-muted">-<a href="" class="text-white"> Tvs Cumbia </a>-</p>
                 </div>

@@ -36,8 +36,8 @@ class PostController extends Controller
 
 
         $posts = Post::where('status', 2)->latest('id')->take(3)->get();
-        // $categories = Category::all();
-        return view('posts.index', compact('posts'));
+        $categories = Category::all();
+        return view('posts.index', compact('posts', 'categories'));
     }
 
     /**
@@ -150,16 +150,18 @@ class PostController extends Controller
     }
 
     public function category(Category $category){
+        $categories = Category::all();
         $posts = Post::where('category_id', $category->id)
             ->where('status', 2)
             ->latest()
             ->paginate(5);
 
-        return view('posts.category', compact('posts', 'category'));
+        return view('posts.category', compact('posts', 'category', 'categories'));
     }
 
     public function tag(Tag $tag){
+        $categories = Category::all();
         $posts =  $tag->posts()->where('status', 2)->latest('id')->paginate(5);
-        return view('posts.tag', compact('posts', 'tag'));
+        return view('posts.tag', compact('posts', 'tag', 'categories'));
     }
 }

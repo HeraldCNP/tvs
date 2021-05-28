@@ -19,6 +19,12 @@ class UserSeeder extends Seeder
             'email' => 'heraldcnp@gmail.com',
             'password' => bcrypt('123'),
         ])->assignRole('Admin');
+        
+        User::create([
+            'name' => 'Luis Daniel Salamanca Barral',
+            'email' => 'luissdanielabc@gmail.com',
+            'password' => bcrypt('2444666666'),
+        ])->assignRole('Blogger');
 
         User::factory(4)->create();
     }

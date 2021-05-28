@@ -41,10 +41,7 @@
                             <a href="{{ route('posts.tag', $tag) }}" class="btn btn-xs btn-{{ $tag->color }} text-white">{{ $tag->name }}</a>
                         @endforeach
                     </div>
-
-
                 </div>
-
             </article>
             @endforeach
         </div>
