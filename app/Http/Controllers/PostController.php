@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Models\Visit;
 use Illuminate\Http\Request;
 
 use Artesaos\SEOTools\Facades\SEOMeta;
@@ -12,8 +13,8 @@ use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\TwitterCard;
 use Artesaos\SEOTools\Facades\JsonLd;
 use Artesaos\SEOTools\Facades\SEOTools;
+use Illuminate\Support\Facades\Cookie;
 use Jorenvh\Share\ShareFacade;
-
 
 
 class PostController extends Controller
@@ -34,10 +35,42 @@ class PostController extends Controller
         SEOTools::twitter()->setSite('@tevesporteve');
         SEOTools::jsonLd()->addImage('http://tevesporteve.bolivia.bo/images/logoTvs.png');
 
-
+        $visit = $this->conta(url()->current());
         $posts = Post::where('status', 2)->latest('id')->take(3)->get();
         $categories = Category::all();
-        return view('posts.index', compact('posts', 'categories'));
+        return view('posts.index', compact('posts', 'categories', 'visit'));
+    }
+
+    public function conta($link){
+        if (!$link || $link == '') {
+            die();
+        }      
+        $visita = Visit::where('link', $link)->get();
+        
+        if (Cookie::get('Prueba')) {
+            // si existe la cookie solo le damos el valor a $visitas
+            return $visita[0]->quantity; 
+        }
+        elseif(!Cookie::get('Prueba')){
+            
+            if(isset($visita[0]->quantity)){
+                $visita[0]->quantity += 1;
+                $visita[0]->save();
+                Cookie::queue('Prueba', 'value', 120);
+                return $visita[0]->quantity;
+            }elseif(!isset($visita->quantity)){
+                $visit = Visit::create([
+                    'quantity' => 1,
+                    'link' => $link
+                ]);
+                $visit->save();
+                Cookie::queue('Prueba', 'value', 120);
+                return $visit->quantity;
+            }
+        }
+        
+        // return response($visit->quantity)->->withCookie(cookie('prueba', 'LarareactJs', 120));
+        
     }
 
     /**

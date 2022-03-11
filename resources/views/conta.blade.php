@@ -25,7 +25,7 @@ if (isset($_COOKIE[md5($enlace)])) {
 } elseif (!isset($_COOKIE[md5($enlace)])) {
     // Comprobamos si el enlace ya esta en la base de datos
     $rows = mysqli_num_rows($query);
-    if ($rows > 0) {
+    if ($rows > 0) {6
         // Cuando exista lo enlace actualizamos
         $SQL = "UPDATE visitas SET visitas=visitas+1 WHERE enlace='$enlace'";
         if (mysqli_query($con, $SQL)) { // Si se inserta la visita
