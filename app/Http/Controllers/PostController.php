@@ -47,16 +47,16 @@ class PostController extends Controller
         }      
         $visita = Visit::where('link', $link)->get();
         
-        if (Cookie::get('Prueba')) {
+        if (Cookie::get('Visita')) {
             // si existe la cookie solo le damos el valor a $visitas
             return $visita[0]->quantity; 
         }
-        elseif(!Cookie::get('Prueba')){
+        elseif(!Cookie::get('Visita')){
             
             if(isset($visita[0]->quantity)){
                 $visita[0]->quantity += 1;
                 $visita[0]->save();
-                Cookie::queue('Prueba', 'value', 120);
+                Cookie::queue('Visita', 'value', 1300);
                 return $visita[0]->quantity;
             }elseif(!isset($visita->quantity)){
                 $visit = Visit::create([
@@ -64,7 +64,7 @@ class PostController extends Controller
                     'link' => $link
                 ]);
                 $visit->save();
-                Cookie::queue('Prueba', 'value', 120);
+                Cookie::queue('Visita', 'value', 1300);
                 return $visit->quantity;
             }
         }
