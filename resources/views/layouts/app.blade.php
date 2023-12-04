@@ -117,7 +117,9 @@
                 <div class="col-md-6 wow fadeInUp text-center" data-wow-duration="1s">
                     <h3>Tv´s X Tv <br> La Mejor Imagen Para Escuchar</h3>
                     <h1 style="font-size: 25px; ">El primer Programa Estudiantil</h1>
-                    <span>Visita N°: {{ $visit }} </span>
+                    @if (Request::is('/'))
+                        <span>Visita N°: {{ $visit }} </span>
+                    @endif
 	                <p style="color:white">Es el programa creado para informar, orientar y educar en las diferentes áreas arte, música literatura, matemáticas y demás materias desde nivel inicial hasta el de profesionalización</p>
                     {{-- <h4>Estamos en renovación<br> Esperalo...</h4> --}}
 

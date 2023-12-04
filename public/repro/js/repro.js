@@ -2,7 +2,7 @@ var song = new Audio();
 var muted = false;
 var vol = 1;
 song.type = 'audio/mpeg';
-song.src = 'http://78.129.193.82:38877/;'; //Audio file source url
+song.src = 'http://80.84.57.76:3855/;'; //Audio file source url
 song.play();
 
 function skip(time) {

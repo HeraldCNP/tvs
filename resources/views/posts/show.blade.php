@@ -8,16 +8,21 @@
                 <div class="col-md-9">
                     <div class="single-video-content">
                         <h3>{{ $post->name }}</h3>
-                        <div class="single-meta pull-left"><span>{{ $post->category->name }}</span> | <span>By: {{ $post->user->name }}</span> | <span>{{ $post->created_at->isoFormat('LL') }}</span></div>
-                        <div class="sharing pull-right"><img src="images/icon/sharing.png" alt=""/></div>
+                        <div class="single-meta pull-left"><span>{{ $post->category->name }}</span> | <span>By:
+                                {{ $post->user->name }}</span> | <span>{{ $post->created_at->isoFormat('LL') }}</span></div>
+                        <div class="sharing pull-right"><img src="images/icon/sharing.png" alt="" /></div>
                         <div class="clearfix"></div>
                         <div class="single-thumb space30">
-                             @if ($post->iframe)
+                            @if ($post->iframe)
                                 <div class="text-center" style="width=100%">
-                                    {!! $post->iframe !!}
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="{!! $post->iframe !!}"
+                                            allowfullscreen></iframe>
+                                    </div>
                                 </div>
                             @else
-                                <img src="{{ Storage::url($post->image->url) }}" class="img-responsive center-block" alt="{{ $post->extract }}"/>
+                                <img src="{{ Storage::url($post->image->url) }}" class="img-responsive center-block"
+                                    alt="{{ $post->extract }}" />
                             @endif
                         </div>
                         <p>{!! $post->body !!}</p>
@@ -78,11 +83,8 @@
                     <div class="side-widget side-widget-gallery">
                         <h5>Publicidad</h5>
                         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                        <ins class="adsbygoogle"
-                            style="display:block"
-                            data-ad-format="fluid"
-                            data-ad-layout-key="-6t+ed+2i-1n-4w"
-                            data-ad-client="ca-pub-7125877501142047"
+                        <ins class="adsbygoogle" style="display:block" data-ad-format="fluid"
+                            data-ad-layout-key="-6t+ed+2i-1n-4w" data-ad-client="ca-pub-7125877501142047"
                             data-ad-slot="4390213254"></ins>
                         <script>
                             (adsbygoogle = window.adsbygoogle || []).push({});
@@ -95,9 +97,12 @@
                                 <li style="margin-bottom: 15px">
                                     <a class="flex" href="{{ route('posts.show', $similar) }}">
                                         @if ($post->image)
-                                            <img class="img-rounded img-responsive" src="{{ Storage::url($similar->image->url) }}" alt="">
+                                            <img class="img-rounded img-responsive"
+                                                src="{{ Storage::url($similar->image->url) }}" alt="">
                                         @else
-                                        <img  class="w-32 object-cover object-center" src="https://cdn.pixabay.com/photo/2020/01/03/11/44/freedom-4737919_960_720.jpg" alt="">
+                                            <img class="w-32 object-cover object-center"
+                                                src="https://cdn.pixabay.com/photo/2020/01/03/11/44/freedom-4737919_960_720.jpg"
+                                                alt="">
                                         @endif
                                         <span>{{ $similar->name }}</span>
                                     </a>
@@ -124,9 +129,9 @@
                     </div>
 
                 </div>
-                
+
             </div>
-            
+
         </div>
     </div>
 @endsection
