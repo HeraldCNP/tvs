@@ -136,8 +136,10 @@ class PostController extends Controller
             ->latest('id')
             ->take(3)
             ->get();
+        // dd($similares);
         $categories = Category::all();
         $tags = Tag::all();
+       
         // $share = ShareFacade::currentPage()->facebook();
         $share = ShareFacade::currentPage($post->name)
                 ->facebook(['class' => 'facebook'])

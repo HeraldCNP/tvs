@@ -9,19 +9,15 @@
             </div>
             @foreach ($posts as $post)
                 <article>
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                         @if ($post->iframe)
-                            <div class="text-center" style="width=100%">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item" src="{!! $post->iframe !!}"
-                                        allowfullscreen></iframe>
-                                </div>
+                            <div class="mydiv">
+                                {!! $post->iframe !!}
                             </div>
                         @else
                             <a href="{{ route('posts.show', $post) }}">
                                 <div class="podcast-thumb">
-                                    <img src="{{ Storage::url($post->image->url) }}" class="img-responsive"
-                                        alt="" />
+                                    <img src="{{ Storage::url($post->image->url) }}" class="img-responsive" alt="" />
                                     <div class="podcast-date">
                                         {{ $post->created_at->isoFormat('MMMM') }}<br />{{ $post->created_at->isoFormat('D') }}
                                     </div>
@@ -30,7 +26,7 @@
                         @endif
 
                     </div>
-                    <div class="col-md-6 news-excerpt">
+                    <div class="col-md-4 news-excerpt">
                         <div class="news-meta">
                             <span><a
                                     href="{{ route('posts.category', $post->category) }}">{{ $post->category->name }}</a></span>

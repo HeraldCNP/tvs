@@ -15,14 +15,15 @@
                         <div class="single-thumb space30">
                             @if ($post->iframe)
                                 <div class="text-center" style="width=100%">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="embed-responsive-item" src="{!! $post->iframe !!}"
-                                            allowfullscreen></iframe>
+                                    <div class="mydiv">
+                                        {!! $post->iframe !!}
                                     </div>
                                 </div>
                             @else
                                 <img src="{{ Storage::url($post->image->url) }}" class="img-responsive center-block"
                                     alt="{{ $post->extract }}" />
+                                    
+                                    
                             @endif
                         </div>
                         <p>{!! $post->body !!}</p>
@@ -93,10 +94,11 @@
                     <div class="side-widget side-widget-news">
                         <h5>Ultimas</h5>
                         <ul class="widget-news">
+                            
                             @foreach ($similares as $similar)
                                 <li style="margin-bottom: 15px">
                                     <a class="flex" href="{{ route('posts.show', $similar) }}">
-                                        @if ($post->image)
+                                        @if ($similar->image)
                                             <img class="img-rounded img-responsive"
                                                 src="{{ Storage::url($similar->image->url) }}" alt="">
                                         @else
