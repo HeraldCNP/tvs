@@ -117,7 +117,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-  
+
                 </div>
                 <div class="col-md-6 wow fadeInUp text-center" data-wow-duration="1s">
                     <h3>Tv´s X Tv <br> La Mejor Imagen Para Escuchar</h3>
@@ -131,13 +131,13 @@
                     {{-- <h4>Estamos en renovación<br> Esperalo...</h4> --}}
 
                 </div>
-                <div class="col-md-3">
+                {{-- <div class="col-md-3">
                     <div class="text-center">
                         <a href="https://drive.google.com/drive/folders/1EO4pGtJRvA5UaNq7HSWR91N9jeYOJdMr?usp=sharing" target="_blank">
                             <img src="{{ asset('images/mix2024.jpg') }}" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);" class="rounded" alt="..." width="250px">
                         </a>
-                      </div>   
-                </div>
+                      </div>
+                </div> --}}
             </div>
         </div>
 
